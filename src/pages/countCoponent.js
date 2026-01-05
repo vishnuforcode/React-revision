@@ -24,6 +24,7 @@ function CountCoponent() {
 
   return (
     <>
+    <div className="container">
     <div className="row justify-content-center" >
         <div className="col-12">
 
@@ -36,6 +37,8 @@ function CountCoponent() {
 
     <Card text = 'vishnu' image='hello image '/>
         </div>
+    </div>
+
     </div>
     
    

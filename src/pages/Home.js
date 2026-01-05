@@ -5,9 +5,7 @@ function Home(props) {
   console.log({ props });
 
   return (
-    <>
-      Home work !! name = {props.name}
-    
+    <>    
       <section className="container-fluid">
         <div className="container"></div>
       </section>

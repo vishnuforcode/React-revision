@@ -5,24 +5,24 @@ function Header() {
   return (
     <>
     
-    <header className="container-fluid p-4 shadow lg ">
+    <header className="container-fluid p-4 shadow lg " style={{backgroundColor:'#010409'}}>
         <div className="container ">
             <div className="row justify-content-between align-items-center">
-                <div className="col-lg-4 col-md-12 d-flex justify-content-between">
+                <div className="col-lg-4 col-md-12 d-flex justify-content-even gap-3">
                     
                         
-                            <NavLink to={'/'}>Home</NavLink>
+                            <NavLink className='text-decoration-none h5 ' style={{color:'white'}} to={'/'}>Home</NavLink>
                         
-                            <NavLink to={'about'}>About</NavLink>
+                            {/* <NavLink  className='text-decoration-none h5' style={{color:'white'}} to={'about'}>About</NavLink> */}
                        
-                            <NavLink to={'counter'}>Counter</NavLink>
+                            {/* <NavLink  className='text-decoration-none h5' style={{color:'white'}} to={'counter'}>Counter</NavLink> */}
                         
-                            <NavLink to={'customhooks'}>CustomHooks</NavLink>
+                            <NavLink  className='text-decoration-none h5' style={{color:'white'}} to={'customhooks'}>CustomHooks</NavLink>
                         
                    
                 </div>
                 <div className="col d-flex justify-content-center justify-content-lg-end mt-sm-3 mt-lg-0">
-                    <input type="text" placeholder='Ctrl+K' />
+                    <input type="text" className='input search' placeholder='Ctrl+K' style={{backgroundColor:'#010409', border:'1px solid gray', borderRadius:'7px'}} />
                 </div>
             </div>
         </div>

@@ -13,16 +13,19 @@ import Home from './pages/Home';
 import About from './pages/About';
 import CountCoponent from './pages/countCoponent';
 import CustomHooks from './pages/customHooks';
+import User from './pages/User';
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout/>}>
 
-      <Route path='' element={<Home/>}/>
+      <Route path='' element={<User/>}/>
       <Route path='about' element={<About/>}/>
-      <Route path='counter' element={<CountCoponent/>}/>
+      {/* <Route path='counter' element={<CountCoponent/>}/> */}
       <Route path='customhooks' element={<CustomHooks/>}/>
+      {/* <Route path='user' element={<User/>}/>
+      <Route path='user/:id?' element={<User/>}/> */}
     </Route>
   )
 )
