@@ -11,13 +11,13 @@ function Header() {
                 <div className="col-lg-4 col-md-12 d-flex justify-content-even gap-3">
                     
                         
-                            <NavLink className='text-decoration-none h5 ' style={{color:'white'}} to={'/'}>Home</NavLink>
+                            <NavLink className='text-decoration-none h5 ' style={{color:'white'}} to={'/'}>GitHub-Finder</NavLink>
                         
                             {/* <NavLink  className='text-decoration-none h5' style={{color:'white'}} to={'about'}>About</NavLink> */}
                        
                             {/* <NavLink  className='text-decoration-none h5' style={{color:'white'}} to={'counter'}>Counter</NavLink> */}
                         
-                            <NavLink  className='text-decoration-none h5' style={{color:'white'}} to={'customhooks'}>CustomHooks</NavLink>
+                            <NavLink  className='text-decoration-none h5' style={{color:'white'}} to={'customhooks'}>Currecny Converter</NavLink>
                         
                    
                 </div>

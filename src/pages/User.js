@@ -5,6 +5,7 @@ import githubTile from "../hooks/github-tile.svg";
 
 
 
+
 function User() {
   const [userdata, setUserData] = useState();
   // const [userRepo , setUserrepo] = useState('')
@@ -64,7 +65,7 @@ function User() {
           <div className="container ">
             <div className="row justify-content-center justify-content-between align-items-center">
               <div className="col-3 text-center d-flex  justify-content-even  " style={{ height:'60px'}} >
-                <img className="img-fluid me-2"style={{borderRadius:100 }}  src= {githubTile} alt="" />
+                 <i className="fa-brands fa-github fa-3x" ></i>
                 <h3 className="pt-2">Github-Finder</h3>
               </div>
               <div className="col-4 p-3 d-flex align-items-center">
@@ -110,12 +111,13 @@ function User() {
                     <br />
                     Repositories :{userdata.public_repos}
                   </div>
-                  <i className="fa-brands fa-github"></i>{" "}
+                  
                   <a
-                    className="btn btn-primary w-full"
+                    className="btn btn-primary d-flex w-full align-items-center "
                     href={userdata.html_url}
                   >
-                    Github{" "}
+                    <i className="fa-brands fa-github fa-2x "></i>
+                   <p className="h6 m-auto">GitHub</p>
                   </a>
                 </div>
               ) : null}
@@ -143,6 +145,12 @@ function User() {
             ) : null}
           </div>
         </div>
+        
+     <div className="back " style={{position:'fixed', bottom:'2px', zIndex:'1000'}}>
+         <i class="fa-solid fa-arrow-left"></i>
+          <Link className="text-decoration-none text-white" to={"/"}>back home</Link>
+
+          </div>
       </div>
     </>
   );

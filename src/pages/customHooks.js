@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useCurrencyInfo from "../hooks/useCurrencyInfo";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import "./Currency.css"
 
 function CustomHooks() {
   // let arr = ['hi' , 'inr' , 'usd']
@@ -11,7 +12,7 @@ function CustomHooks() {
   const data = useCurrencyInfo(fromCurr);
   //    console.log(data);
   // console.log(arr)
-  let multiplyinfo = data[toCurr] || 0 ;
+  let multiplyinfo = data[toCurr] || 0;
   // console.log(multiplyinfo);
 
   let ans = fromValue * multiplyinfo;
@@ -21,119 +22,126 @@ function CustomHooks() {
     setToValue(Number(ans));
   }, [fromValue, toCurr, multiplyinfo]);
 
-  const changeCurr = ()=>{
+  const changeCurr = () => {
     setfromCurr(toCurr);
-  setToCurr(fromCurr);
-    
-  }
+    setToCurr(fromCurr);
+  };
 
   return (
     <>
-    <div className="page img-fluid" style={{backgroundImage: "url('/images/bg.jpeg')" , minHeight:'100%' }}>
-
-    
-      <div className="container-fluid shadow lg bg-white p-3 mt-3">
-        <div className="container">
-          <div className="row m-0 p-0">
-            <div className="col-12 text-center">
-              <div className="text h3">Currency converter
+      <div
+        className="page img-fluid "
+        style={{ backgroundImage: "url('/images/bg.jpeg')", minHeight: "100%" }}
+      >
+        <div className="container-fluid shadow lg  p-3 mt">
+          <div className="container">
+            <div className="row m-0 p-0">
+              <div className="col-12 text-center">
+                <p className="text h3 " style={{color:'white'}}>Currency converter</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <hr />
+        <hr className=" p-0 m-0 " />
 
-      <section
-        className="container-fluid d-flex  align-items-center p-0 m-0 "
-        style={{ height: "70vh" }}
-      >
-        <div className="container   ">
-          <div className="row justify-content-center align-items-center   ">
-            <div className="col-6 rounded " style={{backgroundColor:'rgba(255, 255, 255, 0.20)'}} >
+        <section
+          className="container-fluid p-0 m-0 "
+          style={{ height: "70vh" }}
+        >
+          <div className="container p-3   ">
+            <div className="row justify-content-center   ">
               <div
-                className="row d-flex  flex-column "
-                style={{ gap:'2px' }}
+                className="col-6 glass rounded  p-0 m-0 shadow lg"
+                style={{ color:'white', border:'1px solid gray' }}
               >
-                <div className="col p-3 bg-white rounded " style={{}}>
-                  <form action="" className="form  ">
-                    <label htmlFor="" className="form-label">
-                      From :
-                    </label>
-                    <br />
-                    <input
-                      type="text"
-                      className=" form-control"
-                      value={fromValue}
-                      onChange={(e) => {
-                        setFromValue(e.target.value);
-                      }}
-                      placeholder="enter amount"
-                    />
+                <div
+                  className="row d-flex  flex-column "
+                  style={{ gap: "2px" }}
+                >
+                  <div className="col p-2 d-flex justify-content-center " >
 
-                    <select
-                     className="select"
-                      name="currency"
-                      value={fromCurr}
-                      onChange={(e) => {
-                        setfromCurr(e.target.value);
-                      }}
-                    >
-                      {Object.keys(data).map((curr) => (
-                        <option key={curr} value={curr}>
-                          {curr}
-                        </option>
-                      ))}
-                    </select>
-                  </form>
-                </div>
-               
+                    <form action="" className="form  glass-inner rounded p-3 " style={{width:'90%'  ,height:'100%' ,border:'1px solid gray' }}>
+                      <label htmlFor="" className="form-label">
+                        From :
+                      </label>
+                      <br />
+                      <input
+                        type="text"
+                        className=" form-control mb-1"
+                        value={fromValue}
+                        onChange={(e) => {
+                          setFromValue(e.target.value);
+                        }}
+                        placeholder="enter amount"
+                      />
+
+                      <select
+                        className="select"
+                        name="currency"
+                        value={fromCurr}
+                        onChange={(e) => {
+                          setfromCurr(e.target.value);
+                        }}
+                      >
+                        {Object.keys(data).map((curr) => (
+                          <option key={curr} value={curr}>
+                            {curr}
+                          </option>
+                        ))}
+                      </select>
+                    </form>
+                  </div>
+
                   <button
                     className="btn btn-primary  "
-                    style={{ width: "100px" , zIndex:'2',  overflow:'', margin:'auto'}}
+                    style={{
+                      width: "100px",
+                      zIndex: "2",
+                      overflow: "",
+                      margin: "auto",
+                    }}
                     onClick={changeCurr}
                   >
                     swap
                   </button>
-              
 
-                <div className="col p-3 bg-white  rounded " style={{ }}>
-                  <form action="" className="form ">
-                    <label htmlFor="" className="form-label">
-                      To :
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={toValue}
-                      placeholder="enter amount"
-                    />
+                  <div className="col p-2 d-flex justify-content-center " >
+                    <form action="" className="form p-3  glass-inner rounded " style={{width:'90%', height:'100%' ,border:'1px solid gray' }}>
+                      <label htmlFor="" className="form-label">
+                        To :
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control mb-1 "
+                        value={toValue}
+                        placeholder="enter amount"
+                      />
 
-                    <select
-                      name="currency"
-                      value={toCurr}
-                      onChange={(e) => {
-                        setToCurr(e.target.value);
-                      }}
-                      id=""
-                    >
-                      {Object.keys(data).map((curr) => (
-                        <option key={curr} value={curr}>
-                          {curr}
-                        </option>
-                      ))}
-                    </select>
-                  </form>
+                      <select
+                        name="currency"
+                        value={toCurr}
+                        onChange={(e) => {
+                          setToCurr(e.target.value);
+                        }}
+                        id=""
+                      >
+                        {Object.keys(data).map((curr) => (
+                          <option key={curr} value={curr}>
+                            {curr}
+                          </option>
+                        ))}
+                      </select>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    <Link to={'/'} >back home</Link>
+        </section>
+        <i class="fa-solid fa-arrow-left"></i>
+        <Link className="text-decoration-none" to={"/"}>back home</Link>
 
-
-      {/* <div className="row bg-white ">
+        {/* <div className="row bg-white ">
                 <div className="col p-5 d-flex gap-4">
                    
                 </div>
@@ -144,7 +152,7 @@ function CustomHooks() {
                    
                 </div>
             </div> */}
-            </div>
+      </div>
     </>
   );
 }
