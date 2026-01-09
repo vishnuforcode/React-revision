@@ -15,6 +15,7 @@ import CountCoponent from './pages/countCoponent';
 import CustomHooks from './pages/customHooks';
 import User from './pages/User';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import Issues from './pages/Issues';
 
 
 
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path='about' element={<About/>}/>
       {/* <Route path='counter' element={<CountCoponent/>}/> */}
       <Route path='customhooks' element={<CustomHooks/>}/>
+      <Route path='/repo/:name/issues' element={<Issues/>}/>
       <Route path='*' element={<User/>}/>
       {/* <Route path='user' element={<User/>}/>
       <Route path='user/:id?' element={<User/>}/> */}

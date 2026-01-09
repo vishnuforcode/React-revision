@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { data, Link, useParams } from "react-router-dom";
 import RepoCard from "./components/RepoCard";
+import { useRef } from "react";
 import githubTile from "../hooks/github-tile.svg";
+import "./user.css"
 
 
 
@@ -50,7 +52,18 @@ function User() {
 
   //  const param =  useParams('id')
   //  console.log(param);
+  const containerRef = useRef(null)
+   const [showArrow, setShowArrow] = useState(true);
+  const handleScroll = () => {
+    const el = containerRef.current;
 
+    if (!el) return;
+
+    const isAtBottom =
+      el.scrollTop + el.clientHeight >= el.scrollHeight - 5;
+
+    setShowArrow(!isAtBottom);
+  };
   return (
     <>
       <div
@@ -88,15 +101,17 @@ function User() {
             </div>
           </div>
         </div>
-        <hr />
+        <hr className="m-0 p-0" />
 
-        <div className="container">
-          <div className="row justify-content-start gap-2">
+        <div className="container mt-2">
+          <div className="row justify-content-around">
+            
             <div className="col-4 d-flex justify-content-center">
+              
               {loading ? (
                 "loading..."
               ) : userdata ? (
-                <div className="">
+                <div className="m-3">
                   <div className="mb-3 " style={{borderRadius:'50%'}}>
                     <img
                       className="img-fluid  "
@@ -119,28 +134,56 @@ function User() {
                     <i className="fa-brands fa-github fa-2x "></i>
                    <p className="h6 m-auto">GitHub</p>
                   </a>
-                </div>
-              ) : null}
-            </div>
 
-            {userdata ? (
-              <div
-                className="col-7  "
-                style={{
-                  border: "2px solid gray",
-                  borderRadius:'10px',
-                  height: "550px",
                   
-                  overflowY: "auto",
+                </div>
+                
+
+              ) : null}
+
+             
+            </div>
+            
+                 
+            {userdata ? (
+              
+              <div
+                className=" col-6 d-flex flex-column "
+                style={{
+                  
+                  borderRadius:'10px',
+                  height: "400px",
+                  width:"550px" ,
+                  
+                  overflow: "auto",
+                  scrollbarWidth:'none',
+                  position:'relative'
+                   
+                  // overflowX: "auto",
                 }}
+                ref={containerRef} 
+                onScroll={handleScroll}
               >
-                <div className=" d-flex flex-column " >
-                  <div className="mt-2">
+                <div>
+              <p className="h4 "> Repositories :</p>
+              </div>
+                  <div className="mt-2" >
                     {Array.isArray(repos) && repos.map((repo) => (
                       <RepoCard key={repo.id} repo={repo} />
                     ))}
                   </div>
-                </div>
+                  {/* Floating arrow */}
+      {showArrow && (
+        <div className="scroll-arrow "  onClick={() =>
+    containerRef.current.scrollTo({
+      top: containerRef.current.scrollHeight,
+      behavior: "smooth",
+    })
+  }>
+          <i className="fa-solid fa-arrow-down" style={{color:'#5A7ACD' , fontSize:'30px' , fontWeight:'bolder'}}></i>
+        </div>
+      )}
+                
               </div>
             ) : null}
           </div>

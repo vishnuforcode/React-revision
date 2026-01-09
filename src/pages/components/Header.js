@@ -11,7 +11,7 @@ function Header() {
                 <div className="col-lg-4 col-md-12 d-flex justify-content-even gap-3">
                     
                         
-                            <NavLink className='text-decoration-none h5 ' style={{color:'white'}} to={'/'}>GitHub-Finder</NavLink>
+                            <NavLink className='text-decoration-none h5 active '  style={{color:'white'}} to={'/'}>GitHub-Finder</NavLink>
                         
                             {/* <NavLink  className='text-decoration-none h5' style={{color:'white'}} to={'about'}>About</NavLink> */}
                        
